@@ -20,7 +20,7 @@
             <?php endif; ?>
             <div class="panel-body">
                 <div class="row">
-                    <form role="form" method="POST" novalidate>
+                    <form role="form" method="POST">
                         <div class="col-lg-6">
                             
                             <div class="form-group">
