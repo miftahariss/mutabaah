@@ -270,6 +270,9 @@
                             <a href="<?php echo base_url(); ?>mutabaah"><i class="fa fa-edit fa-fw"></i> Entry Mutaba'ah</a>
                         </li>
                         <li>
+                            <a href="<?php echo base_url(); ?>user"><i class="fa fa-table fa-fw"></i> Users</a>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -374,6 +377,19 @@
     <!-- Page-Level Plugin Scripts - Dashboard -->
     <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.js"></script>
+
+    <?php if($base == "User"): ?>
+        <script src="<?php echo base_url(); ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+        <!-- Page-Level Plugin Scripts - Tables -->
+        <script src="<?php echo base_url(); ?>assets/js/plugins/dataTables/jquery.dataTables.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('#dataTables-example').dataTable();
+        });
+        </script>
+    <?php endif; ?>
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="<?php echo base_url(); ?>assets/js/sb-admin.js"></script>
