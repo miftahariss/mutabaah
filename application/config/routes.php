@@ -48,6 +48,8 @@ $route['registersukses'] = "frontend/registersukses";
 $route['signup'] = "frontend/signup";
 
 $route['mutabaah'] = "frontend/mutabaah";
+$route['user'] = "frontend/user";
+$route['user/detail/(:any)'] = "frontend/userdetail";
 $route['404_override'] = '';
 
 $route['cewekbanget'] = "frontend/cewekbanget";
