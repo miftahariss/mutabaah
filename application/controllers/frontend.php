@@ -88,6 +88,48 @@ class Frontend extends CI_Controller {
         $this->load->view('frontend/templates', $data);
     }
 
+    function user(){
+        $data['base'] = 'User';
+
+        $this->db->where_in('status', array('1'));
+        $this->db->order_by("date", "desc");
+        $user_query = $this->db->get('hamasah_mutabaah_user');
+        $data['users'] = $user_query->result_array();
+
+        $data['mainpage'] = 'frontend/user';
+        $this->load->view('frontend/templates', $data);
+    }
+
+    function userdetail(){
+        $data['base'] = 'Userdetail';
+
+        if ($this->uri->segment(3) == "") {
+            redirect('user');
+            die;
+        }
+
+        $this->db->where('id_user', $this->uri->segment(3));
+        $this->db->where_in('status', array('1'));
+        $this->db->order_by("date", "desc");
+        $user_query = $this->db->get('hamasah_mutabaah_mutabaah');
+        $data['users'] = $user_query->result_array();
+
+        $this->db->where('id', $this->uri->segment(3));
+        $this->db->where_in('status', array('1'));
+        $user_query = $this->db->get('hamasah_mutabaah_user');
+        $data['userdetail'] = $user_query->result_array();
+
+        $data['nama'] = $data['userdetail'][0]['nama'];
+
+        if (count($data['userdetail']) < 1) {
+            redirect('user');
+            die;
+        }
+
+        $data['mainpage'] = 'frontend/userdetail';
+        $this->load->view('frontend/templates', $data);
+    }
+
     function login(){
     	$data['base'] = 'Login';
 
