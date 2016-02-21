@@ -89,6 +89,9 @@ class Frontend extends CI_Controller {
     }
 
     function user(){
+        if (!$this->session->userdata('email') && !$this->session->userdata('password')) {
+            redirect('/');
+        }
         $data['base'] = 'User';
 
         $this->db->where_in('status', array('1'));
@@ -101,27 +104,40 @@ class Frontend extends CI_Controller {
     }
 
     function userdetail(){
-        $data['base'] = 'Userdetail';
+        if (!$this->session->userdata('email') && !$this->session->userdata('password')) {
+            redirect('/');
+        }
+        $data['base'] = 'User';
 
         if ($this->uri->segment(3) == "") {
             redirect('user');
             die;
         }
 
-        $this->db->where('id_user', $this->uri->segment(3));
-        $this->db->where_in('status', array('1'));
-        $this->db->order_by("date", "desc");
-        $user_query = $this->db->get('hamasah_mutabaah_mutabaah');
-        $data['users'] = $user_query->result_array();
+        // $this->db->where('id_user', $this->uri->segment(3));
+        // $this->db->where_in('status', array('1'));
+        // $this->db->order_by("date", "desc");
+        // $user_query = $this->db->get('hamasah_mutabaah_mutabaah');
+        // $data['users'] = $user_query->result_array();
 
-        $this->db->where('id', $this->uri->segment(3));
-        $this->db->where_in('status', array('1'));
-        $user_query = $this->db->get('hamasah_mutabaah_user');
-        $data['userdetail'] = $user_query->result_array();
+        // $this->db->where('id', $this->uri->segment(3));
+        // $this->db->where_in('status', array('1'));
+        // $user_query = $this->db->get('hamasah_mutabaah_user');
+        // $data['userdetail'] = $user_query->result_array();
 
-        $data['nama'] = $data['userdetail'][0]['nama'];
+        $this->db->select('hamasah_mutabaah_user.id AS user_id, hamasah_mutabaah_user.nama AS nama, hamasah_mutabaah_mutabaah.*');
+        $this->db->where('hamasah_mutabaah_mutabaah.status', 1);
+        $this->db->where('hamasah_mutabaah_mutabaah.id_user', $this->uri->segment(3));
+        $this->db->order_by('hamasah_mutabaah_mutabaah.id', 'desc');
+        $this->db->from('hamasah_mutabaah_mutabaah');
+        $this->db->join('hamasah_mutabaah_user', 'hamasah_mutabaah_user.id = hamasah_mutabaah_mutabaah.id_user', 'left');
+        $query = $this->db->get();
+        $data['mutabaah'] = $query->result_array();
+        var_dump($data['mutabaah']);exit;
 
-        if (count($data['userdetail']) < 1) {
+        $data['nama'] = $data['mutabaah'][0]['nama'];
+
+        if (count($data['mutabaah']) < 1) {
             redirect('user');
             die;
         }
