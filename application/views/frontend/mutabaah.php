@@ -102,6 +102,11 @@
                                         <input type="radio" name="tilawah" value="5" required>1 Lembar
                                     </label>
                                 </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="tilawah" value="0" required>None
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -201,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>12. Almatsurat</label>
+                                <label>12. Almasurat</label>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="almasurat" value="20" required>Ya
