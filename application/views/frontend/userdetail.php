@@ -31,10 +31,10 @@
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo date('Y-m-d', $item['date']); ?></td>
                                     <td><?php echo $item['nama']; ?></td>
-                                    <td><a href="" class="btn btn-outline btn-primary" data-toggle="modal" data-target="#myModal<?php echo $item['user_id']; ?>">Detail</a></td>
+                                    <td><a href="" class="btn btn-outline btn-primary" data-toggle="modal" data-target="#myModal<?php echo $item['id']; ?>">Detail</a></td>
                                 </tr>
                                 <!-- Modal POPUP -->
-                                <div class="modal fade" id="myModal<?php echo $item['user_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="myModal<?php echo $item['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -43,7 +43,13 @@
                                         </div>
                                         <div class="modal-body">
                                             <label>Sholat Jamaah:</label>
-                                            <?php echo $item['sholat_jamaah']; ?><br>
+                                            <?php
+                                                if($item['sholat_jamaah'] == 0){
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                } else {
+                                                    echo $item['sholat_jamaah'];
+                                                }
+                                            ?><br>
                                             <label>Shubuh Jamaah:</label>
                                             <?php
                                                 if($item['shubuh_jamaah'] == 5){
@@ -59,6 +65,82 @@
                                                 } else {
                                                     echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
                                                 }
+                                            ?><br>
+                                            <label>Tilawah Quran:</label>
+                                            <?php
+                                                if($item['tilawah'] == 15){
+                                                    echo "=> 3 Lembar";
+                                                } elseif($item['tilawah'] == 10){
+                                                    echo "2 Lembar";
+                                                } elseif($item['tilawah'] == 5) {
+                                                    echo "1 Lembar";
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Shodaqoh:</label>
+                                            <?php
+                                                if($item['shodaqoh'] == 5){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Qiyamulail</label>
+                                            <?php
+                                                if($item['qiyamulail'] == 10){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Baca Berita Dunia Islam</label>
+                                            <?php
+                                                if($item['berita_islam'] == 5){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Muhasabah</label>
+                                            <?php
+                                                if($item['muhasabah'] == 5){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Hafalan Harian</label>
+                                            <?php
+                                                if($item['hafalan_harian'] == 5){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Olahraga Harian</label>
+                                            <?php
+                                                if($item['olahraga_harian'] == 5){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Istigfar 100x</label>
+                                            <?php
+                                                if($item['istigfar_100'] == 20){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
+                                            ?><br>
+                                            <label>Almatsurat</label>
+                                            <?php
+                                                if($item['almasurat'] == 20){
+                                                    echo '<button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i></button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>';
+                                                }
                                             ?>
                                         </div>
                                         <div class="modal-footer">
@@ -68,12 +150,22 @@
                                     <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
-                            </div>
+                                </div>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                         </tbody>
                     </table>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Bar Chart Example
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="morris-bar-chart"></div>
+                    </div>
+                    <!-- /.panel-body -->
                 </div>
             </div>
             <!-- /.panel-body -->
