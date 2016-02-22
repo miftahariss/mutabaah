@@ -13,7 +13,7 @@
     <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Page-Level Plugin CSS - Dashboard -->
-    <?php if($base == "Home"): ?>
+    <?php if($base == "Home" || $base == "User"): ?>
     <link href="<?php echo base_url(); ?>assets/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/plugins/timeline/timeline.css" rel="stylesheet">
     <?php endif; ?>
@@ -395,7 +395,199 @@
     <script src="<?php echo base_url(); ?>assets/js/sb-admin.js"></script>
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <script src="<?php echo base_url(); ?>assets/js/demo/dashboard-demo.js"></script>
+    <?php if($base == "Home"): ?>
+        <script src="<?php echo base_url(); ?>assets/js/demo/dashboard-demo.js"></script>
+    <?php endif; ?>
+
+    <?php if($base == "User"): ?>
+    <script>
+        $(function() {
+
+            Morris.Bar({
+                element: 'morris-bar-chart',
+                data: [{
+                    y: 'Januari',
+                    a: <?php echo ($chart['januari'][0]->total_sholat_jamaah ? $chart['januari'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['januari'][0]->total_shubuh_jamaah ? $chart['januari'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['januari'][0]->total_sholat_dhuha ? $chart['januari'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['januari'][0]->total_tilawah ? $chart['januari'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['januari'][0]->total_shodaqoh ? $chart['januari'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['januari'][0]->total_qiyamulail ? $chart['januari'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['januari'][0]->total_berita_islam ? $chart['januari'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['januari'][0]->total_muhasabah ? $chart['januari'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['januari'][0]->total_hafalan_harian ? $chart['januari'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['januari'][0]->total_olahraga_harian ? $chart['januari'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['januari'][0]->total_istigfar_100 ? $chart['januari'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['januari'][0]->total_almasurat ? $chart['januari'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Februari',
+                    a: <?php echo ($chart['februari'][0]->total_sholat_jamaah ? $chart['februari'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['februari'][0]->total_shubuh_jamaah ? $chart['februari'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['februari'][0]->total_sholat_dhuha ? $chart['februari'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['februari'][0]->total_tilawah ? $chart['februari'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['februari'][0]->total_shodaqoh ? $chart['februari'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['februari'][0]->total_qiyamulail ? $chart['februari'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['februari'][0]->total_berita_islam ? $chart['februari'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['februari'][0]->total_muhasabah ? $chart['februari'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['februari'][0]->total_hafalan_harian ? $chart['februari'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['februari'][0]->total_olahraga_harian ? $chart['februari'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['februari'][0]->total_istigfar_100 ? $chart['februari'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['februari'][0]->total_almasurat ? $chart['februari'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Maret',
+                    a: <?php echo ($chart['maret'][0]->total_sholat_jamaah ? $chart['maret'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['maret'][0]->total_shubuh_jamaah ? $chart['maret'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['maret'][0]->total_sholat_dhuha ? $chart['maret'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['maret'][0]->total_tilawah ? $chart['maret'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['maret'][0]->total_shodaqoh ? $chart['maret'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['maret'][0]->total_qiyamulail ? $chart['maret'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['maret'][0]->total_berita_islam ? $chart['maret'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['maret'][0]->total_muhasabah ? $chart['maret'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['maret'][0]->total_hafalan_harian ? $chart['maret'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['maret'][0]->total_olahraga_harian ? $chart['maret'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['maret'][0]->total_istigfar_100 ? $chart['maret'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['maret'][0]->total_almasurat ? $chart['maret'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'April',
+                    a: <?php echo ($chart['april'][0]->total_sholat_jamaah ? $chart['april'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['april'][0]->total_shubuh_jamaah ? $chart['april'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['april'][0]->total_sholat_dhuha ? $chart['april'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['april'][0]->total_tilawah ? $chart['april'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['april'][0]->total_shodaqoh ? $chart['april'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['april'][0]->total_qiyamulail ? $chart['april'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['april'][0]->total_berita_islam ? $chart['april'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['april'][0]->total_muhasabah ? $chart['april'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['april'][0]->total_hafalan_harian ? $chart['april'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['april'][0]->total_olahraga_harian ? $chart['april'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['april'][0]->total_istigfar_100 ? $chart['april'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['april'][0]->total_almasurat ? $chart['april'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Mei',
+                    a: <?php echo ($chart['mei'][0]->total_sholat_jamaah ? $chart['mei'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['mei'][0]->total_shubuh_jamaah ? $chart['mei'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['mei'][0]->total_sholat_dhuha ? $chart['mei'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['mei'][0]->total_tilawah ? $chart['mei'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['mei'][0]->total_shodaqoh ? $chart['mei'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['mei'][0]->total_qiyamulail ? $chart['mei'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['mei'][0]->total_berita_islam ? $chart['mei'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['mei'][0]->total_muhasabah ? $chart['mei'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['mei'][0]->total_hafalan_harian ? $chart['mei'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['mei'][0]->total_olahraga_harian ? $chart['mei'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['mei'][0]->total_istigfar_100 ? $chart['mei'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['mei'][0]->total_almasurat ? $chart['mei'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Juni',
+                    a: <?php echo ($chart['juni'][0]->total_sholat_jamaah ? $chart['juni'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['juni'][0]->total_shubuh_jamaah ? $chart['juni'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['juni'][0]->total_sholat_dhuha ? $chart['juni'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['juni'][0]->total_tilawah ? $chart['juni'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['juni'][0]->total_shodaqoh ? $chart['juni'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['juni'][0]->total_qiyamulail ? $chart['juni'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['juni'][0]->total_berita_islam ? $chart['juni'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['juni'][0]->total_muhasabah ? $chart['juni'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['juni'][0]->total_hafalan_harian ? $chart['juni'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['juni'][0]->total_olahraga_harian ? $chart['juni'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['juni'][0]->total_istigfar_100 ? $chart['juni'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['juni'][0]->total_almasurat ? $chart['juni'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Juli',
+                    a: <?php echo ($chart['juli'][0]->total_sholat_jamaah ? $chart['juli'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['juli'][0]->total_shubuh_jamaah ? $chart['juli'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['juli'][0]->total_sholat_dhuha ? $chart['juli'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['juli'][0]->total_tilawah ? $chart['juli'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['juli'][0]->total_shodaqoh ? $chart['juli'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['juli'][0]->total_qiyamulail ? $chart['juli'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['juli'][0]->total_berita_islam ? $chart['juli'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['juli'][0]->total_muhasabah ? $chart['juli'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['juli'][0]->total_hafalan_harian ? $chart['juli'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['juli'][0]->total_olahraga_harian ? $chart['juli'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['juli'][0]->total_istigfar_100 ? $chart['juli'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['juli'][0]->total_almasurat ? $chart['juli'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Agustus',
+                    a: <?php echo ($chart['agustus'][0]->total_sholat_jamaah ? $chart['agustus'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['agustus'][0]->total_shubuh_jamaah ? $chart['agustus'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['agustus'][0]->total_sholat_dhuha ? $chart['agustus'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['agustus'][0]->total_tilawah ? $chart['agustus'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['agustus'][0]->total_shodaqoh ? $chart['agustus'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['agustus'][0]->total_qiyamulail ? $chart['agustus'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['agustus'][0]->total_berita_islam ? $chart['agustus'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['agustus'][0]->total_muhasabah ? $chart['agustus'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['agustus'][0]->total_hafalan_harian ? $chart['agustus'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['agustus'][0]->total_olahraga_harian ? $chart['agustus'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['agustus'][0]->total_istigfar_100 ? $chart['agustus'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['agustus'][0]->total_almasurat ? $chart['agustus'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'September',
+                    a: <?php echo ($chart['september'][0]->total_sholat_jamaah ? $chart['september'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['september'][0]->total_shubuh_jamaah ? $chart['september'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['september'][0]->total_sholat_dhuha ? $chart['september'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['september'][0]->total_tilawah ? $chart['september'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['september'][0]->total_shodaqoh ? $chart['september'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['september'][0]->total_qiyamulail ? $chart['september'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['september'][0]->total_berita_islam ? $chart['september'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['september'][0]->total_muhasabah ? $chart['september'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['september'][0]->total_hafalan_harian ? $chart['september'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['september'][0]->total_olahraga_harian ? $chart['september'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['september'][0]->total_istigfar_100 ? $chart['september'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['september'][0]->total_almasurat ? $chart['september'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Oktober',
+                    a: <?php echo ($chart['oktober'][0]->total_sholat_jamaah ? $chart['oktober'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['oktober'][0]->total_shubuh_jamaah ? $chart['oktober'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['oktober'][0]->total_sholat_dhuha ? $chart['oktober'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['oktober'][0]->total_tilawah ? $chart['oktober'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['oktober'][0]->total_shodaqoh ? $chart['oktober'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['oktober'][0]->total_qiyamulail ? $chart['oktober'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['oktober'][0]->total_berita_islam ? $chart['oktober'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['oktober'][0]->total_muhasabah ? $chart['oktober'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['oktober'][0]->total_hafalan_harian ? $chart['oktober'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['oktober'][0]->total_olahraga_harian ? $chart['oktober'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['oktober'][0]->total_istigfar_100 ? $chart['oktober'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['oktober'][0]->total_almasurat ? $chart['oktober'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'November',
+                    a: <?php echo ($chart['november'][0]->total_sholat_jamaah ? $chart['november'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['november'][0]->total_shubuh_jamaah ? $chart['november'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['november'][0]->total_sholat_dhuha ? $chart['november'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['november'][0]->total_tilawah ? $chart['november'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['november'][0]->total_shodaqoh ? $chart['november'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['november'][0]->total_qiyamulail ? $chart['november'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['november'][0]->total_berita_islam ? $chart['november'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['november'][0]->total_muhasabah ? $chart['november'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['november'][0]->total_hafalan_harian ? $chart['november'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['november'][0]->total_olahraga_harian ? $chart['november'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['november'][0]->total_istigfar_100 ? $chart['november'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['november'][0]->total_almasurat ? $chart['november'][0]->total_almasurat : 0 ); ?>
+                }, {
+                    y: 'Desember',
+                    a: <?php echo ($chart['desember'][0]->total_sholat_jamaah ? $chart['desember'][0]->total_sholat_jamaah : 0 ); ?>,
+                    b: <?php echo ($chart['desember'][0]->total_shubuh_jamaah ? $chart['desember'][0]->total_shubuh_jamaah : 0 ); ?>,
+                    c: <?php echo ($chart['desember'][0]->total_sholat_dhuha ? $chart['desember'][0]->total_sholat_dhuha : 0 ); ?>,
+                    d: <?php echo ($chart['desember'][0]->total_tilawah ? $chart['desember'][0]->total_tilawah : 0 ); ?>,
+                    e: <?php echo ($chart['desember'][0]->total_shodaqoh ? $chart['desember'][0]->total_shodaqoh : 0 ); ?>,
+                    f: <?php echo ($chart['desember'][0]->total_qiyamulail ? $chart['desember'][0]->total_qiyamulail : 0 ); ?>,
+                    g: <?php echo ($chart['desember'][0]->total_berita_islam ? $chart['desember'][0]->total_berita_islam : 0 ); ?>,
+                    h: <?php echo ($chart['desember'][0]->total_muhasabah ? $chart['desember'][0]->total_muhasabah : 0 ); ?>,
+                    i: <?php echo ($chart['desember'][0]->total_hafalan_harian ? $chart['desember'][0]->total_hafalan_harian : 0 ); ?>,
+                    j: <?php echo ($chart['desember'][0]->total_olahraga_harian ? $chart['desember'][0]->total_olahraga_harian : 0 ); ?>,
+                    k: <?php echo ($chart['desember'][0]->total_istigfar_100 ? $chart['desember'][0]->total_istigfar_100 : 0 ); ?>,
+                    l: <?php echo ($chart['desember'][0]->total_almasurat ? $chart['desember'][0]->total_almasurat : 0 ); ?>
+                }],
+                xkey: 'y',
+                ykeys: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
+                labels: ['Sholat Jamaah', 'Shubuh Jamaah', 'Sholat Dhuha', 'Tilawah Quran',
+                        'Shodaqoh', 'Qiyamulail', 'Baca Berita Islam', 'Muhasabah', 'Hafalan Quran',
+                        'Olahraga Harian', 'Istigfar 100x', 'Almasurat'
+                ],
+                hideHover: 'auto',
+                resize: true
+            });
+
+        });
+
+    </script>
+    <?php endif; ?>
 
 </body>
 
