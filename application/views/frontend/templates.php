@@ -18,6 +18,8 @@
     <link href="<?php echo base_url(); ?>assets/css/plugins/timeline/timeline.css" rel="stylesheet">
     <?php endif; ?>
 
+    <link href="<?php echo base_url(); ?>assets/css/plugins/social-buttons/social-buttons.css" rel="stylesheet">
+
     <!-- SB Admin CSS - Include with every page -->
     <link href="<?php echo base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
 
