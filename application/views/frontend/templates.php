@@ -402,7 +402,7 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <?php if($base == "Home"): ?>
-        <script src="<?php echo base_url(); ?>assets/js/demo/dashboard-demo.js"></script>
+        <?php /* <script src="<?php echo base_url(); ?>assets/js/demo/dashboard-demo.js"></script> */ ?>
     <?php endif; ?>
 
     <?php if($base == "Mutabaah"): ?>
@@ -420,7 +420,7 @@
         </script>
     <?php endif; ?>
 
-    <?php if($base == "User"): ?>
+    <?php if($base == "Home" || $base == "User"): ?>
     <script>
         $(function() {
 
