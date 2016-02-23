@@ -28,11 +28,11 @@ class Frontend extends CI_Controller {
         $data['base'] = 'Mutabaah';
 
         if ($this->input->post('submit')) {
-            $cek = $this->m_frontend->cek_mutabaah($this->session->userdata('id'));
+            $cek = $this->m_frontend->cek_mutabaah($this->session->userdata('id'),$this->input->post('date'));
             if ($cek == TRUE) {
                 //var_dump('bis');exit;
                 $this->session->set_flashdata('danger', 'danger');
-                $this->session->set_flashdata('msg', 'Akhi sudah entry hari ini, mulai entry lagi besok yaa.');
+                $this->session->set_flashdata('msg', 'Akhi sudah entry pada tanggal tersebut');
                 redirect('mutabaah');
                 exit;
             }
@@ -58,7 +58,7 @@ class Frontend extends CI_Controller {
 
             $insert = array(
                 'id_user' => $this->session->userdata('id'),
-                'date' => strtotime(date('Y-m-d')),
+                'date' => strtotime($this->input->post('date')),
                 'sholat_jamaah' => $jumlah_sholat_jamaah,
                 'shubuh_jamaah' => $shubuh_jamaah,
                 'sholat_dhuha' => $sholat_dhuha,
