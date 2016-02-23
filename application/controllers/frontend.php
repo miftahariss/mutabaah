@@ -17,6 +17,9 @@ class Frontend extends CI_Controller {
             redirect('login');
         }
 
+        $data['chart'] = $this->m_frontend->get_chart($this->session->userdata('id'));
+        $data['nama'] = $this->session->userdata('nama');
+
     	$data['mainpage'] = 'frontend/home';
     	$this->load->view('frontend/templates', $data);
     }
