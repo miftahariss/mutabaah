@@ -22,7 +22,9 @@
                 <div class="row">
                     <form role="form" method="POST">
                         <div class="col-lg-6">
-                            
+                            <div class="form-group">
+                                <label>Tanggal:<input type="search" name="date" class="form-control input-sm" aria-controls="dataTables-example" id="birthdate" readonly required></label>
+                            </div>
                             <div class="form-group">
                                 <label>1. Sholat Jamaah</label>
                                 <div class="checkbox">
