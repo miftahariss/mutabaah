@@ -40,6 +40,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+            <?php /* ?>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -229,17 +230,18 @@
                     </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
+                <?php */ ?>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
+                        <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li> -->
+                        <!-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li> -->
+                        <!-- <li class="divider"></li> -->
                         <li><a href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -252,6 +254,7 @@
             <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
+                        <?php /* ?>
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
@@ -263,6 +266,7 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+                        <?php */ ?>
                         <li>
                             <a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -272,6 +276,7 @@
                         <li>
                             <a href="<?php echo base_url(); ?>user"><i class="fa fa-table fa-fw"></i> Users</a>
                         </li>
+                        <?php /* ?>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -353,6 +358,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <?php */ ?>
                     </ul>
                     <!-- /#side-menu -->
                 </div>
@@ -397,6 +403,21 @@
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <?php if($base == "Home"): ?>
         <script src="<?php echo base_url(); ?>assets/js/demo/dashboard-demo.js"></script>
+    <?php endif; ?>
+
+    <?php if($base == "Mutabaah"): ?>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript">
+          $(function() {
+              $("#birthdate").datepicker({
+                  dateFormat: "yy-mm-dd",
+                  changeMonth: true,
+                  changeYear: true,
+                  yearRange: "-50:+0",
+              });
+          });
+        </script>
     <?php endif; ?>
 
     <?php if($base == "User"): ?>
