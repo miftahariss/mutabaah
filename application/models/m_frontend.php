@@ -8,12 +8,12 @@ class M_frontend extends CI_Model {
         parent::__construct();
     }
 
-    public function cek_mutabaah($id){
+    public function cek_mutabaah($id,$tanggal){
 		$this->db->select('*');
 	    $this->db->from('hamasah_mutabaah_mutabaah');
 	    $this->db->where('status', 1);
 	    $this->db->where('id_user', $id);
-	    $this->db->where('date', strtotime(date('Y-m-d')));
+	    $this->db->where('date', strtotime($tanggal));
 	    $query = $this->db->get();
 
 	    if ($query->num_rows() > 0) {
