@@ -37,8 +37,19 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Download Source Code
+                        </div>
+                        <div class="panel-body">
+                            <a href="https://github.com/miftahariss/mutabaah" target="_blank" class="btn btn-block btn-social btn-github">
+                                <i class="fa fa-github"></i> Download on GitHub
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.col-lg-8 -->
+
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
