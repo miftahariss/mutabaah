@@ -159,7 +159,7 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Bar Chart Example
+                        <?php echo $nama; ?> Mutaba'ah Chart <?php echo date('Y'); ?>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
