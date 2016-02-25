@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="form-group">
                                         <?php echo form_error('comfirmpassword', '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>', '</div>'); ?>
-                                        <input class="form-control" placeholder="Confirm Password" name="comfirmpassword" type="password" autofocus>
+                                        <input class="form-control" placeholder="Confirm Password" name="confirmpassword" type="password" autofocus>
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
                                     <button type="submit" name="submit" value="submit" class="btn btn-lg btn-success btn-block">Change Password</button>
